@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "requirements.txt",
+        "use": "@vercel/python",
+        "config": {
+          "runtime": "python3.10",
+          "pip": "install -r requirements.txt"
+        }
+      },
+      {
+        "src": "update_degradations.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "app.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "app.py"
+      }
+    ]
+  }
